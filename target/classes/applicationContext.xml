@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans
     xmlns:p="http://www.springframework.org/schema/p"
     xmlns:c="http://www.springframework.org/schema/c"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:context="http://www.springframework.org/schema/context"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-                        http://www.springframework.org/schema/tx https://www.springframework.org/schema/tx/spring-tx.xsd
-                        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/tx
+                        https://www.springframework.org/schema/tx/spring-tx.xsd
                         http://www.springframework.org/schema/context
-                        https://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="true">
+                        https://www.springframework.org/schema/context/spring-context.xsd" >
     
-    
-    <context:annotation-config/>
+    <context:component-scan base-package="spring.hibernate" >
+    </context:component-scan>    
     <tx:annotation-driven />
     <context:property-placeholder location="datasource.properties"/>
 
@@ -31,16 +32,20 @@
             <props>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
             </props>
         </property>
     </bean>
 
-    <bean id="transactionManager"
-        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
+    <bean id="customerDaoTransactional" class="spring.hibernate.persistence.dao.impl.CustomerDaoTransactional"/>
 
     <bean id="customerDao" class="spring.hibernate.persistence.dao.impl.CustomerDaoImpl" p:emf-ref="myEmf"/>
 
+    <bean id="customer" class="spring.hibernate.models.Customer" scope="prototype"
+    p:FirstName="new bean" p:LastName="from context" 
+    p:Mobile="02316516515" />
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" p:entityManagerFactory-ref="myEmf"/>
 
 </beans>

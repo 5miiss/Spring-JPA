@@ -34,8 +34,7 @@ public class Customer {
         this.Mobile = Mobile;
     }
 
-    public Customer(int id, String FirstName, String LastName, String Mobile ,Timestamp lastOrdered) {
-        this.id = id;
+    public Customer( String FirstName, String LastName, String Mobile ,Timestamp lastOrdered) {
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Mobile = Mobile;

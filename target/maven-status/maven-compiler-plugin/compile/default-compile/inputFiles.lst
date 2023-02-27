@@ -1,7 +1,7 @@
 D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\App.java
 D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\config\ConfigClass.java
 D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\persistence\dao\CustomerDao.java
+D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\persistence\dao\impl\CustomerDaoTransactional.java
 D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\persistence\dao\impl\CustomerDaoImpl.java
-D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\persistence\dao\impl\CustomerDaoSession.java
 D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\services\CustomerCrud.java
 D:\courses\ITI\Spring\Data\Day3\src\main\java\spring\hibernate\models\Customer.java
