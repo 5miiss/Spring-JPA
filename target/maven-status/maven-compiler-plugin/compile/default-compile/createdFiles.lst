@@ -1,0 +1,7 @@
+spring\hibernate\models\Customer.class
+spring\hibernate\persistence\dao\impl\CustomerDaoImpl.class
+spring\hibernate\persistence\dao\impl\CustomerDaoSession.class
+spring\hibernate\App.class
+spring\hibernate\services\CustomerCrud.class
+spring\hibernate\config\ConfigClass.class
+spring\hibernate\persistence\dao\CustomerDao.class
